@@ -22,10 +22,16 @@ public class TestLog : MonoBehaviour
         Debug.LogError("!!! Test Error Log Message !!!");
 
 #if WINDOWS_UWP
-        var folderpath = KnownFolders.Objects3D.Path;
+        // 3D Objectsフォルダを参照
+        var folderpath = KnownFolders.Objects3D.Path;   
         var filepath = Path.Combine(folderpath, "TestPB.bin");
         Debug.Log(filepath); 
-        Debug.LogError(filepath); 
+        Debug.LogError("e : " + filepath); 
+
+        // Application内のLocalStateフォルダを参照
+        var folderpath2 = Application.persistentDataPath;
+        Debug.Log(folderpath2);
+        Debug.LogError("e : " + folderpath2); 
 #endif
     }
 }
